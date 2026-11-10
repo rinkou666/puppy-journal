@@ -32,3 +32,7 @@ export function removeEntry(data,id){return {...data,entries:data.entries.filter
 export function removeGoal(data,id){return {...data,goals:data.goals.filter(g=>g.id!==id),entries:data.entries.filter(e=>e.goalId!==id)}}
 export function editEntry(data,id,amount,date){return validate({...data,entries:data.entries.map(e=>e.id===id?{...e,amount,date}:e)})}
 export function saveGoal(data,goal){const old=data.goals.find(g=>g.id===goal.id);if(old&&data.entries.some(e=>e.goalId===old.id)&&(old.unit!==goal.unit||old.kind!==goal.kind))throw Error('已有记录的挑战不能更换单位，请新建一个挑战。');return validate({...data,goals:old?data.goals.map(g=>g.id===goal.id?goal:g):[...data.goals,goal]})}
+export function monthGrid(month){if(!/^\d{4}-\d{2}$/.test(month)||!isDate(month+'-01'))throw Error('月份无效');const first=month+'-01',d=new Date(dateValue(first)),offset=(d.getUTCDay()+6)%7;d.setUTCMonth(d.getUTCMonth()+1);const count=Math.round((d.getTime()-dateValue(first))/86400000);return [...Array(offset).fill(null),...Array.from({length:count},(_,i)=>plusDays(first,i))]}
+export function moveMonth(month,offset){const d=new Date(dateValue(month+'-01'));d.setUTCMonth(d.getUTCMonth()+offset);return d.toISOString().slice(0,7)}
+export function activityDates(data,month,goalId=''){return new Set(data.entries.filter(e=>e.date.startsWith(month+'-')&&(!goalId||e.goalId===goalId)).map(e=>e.date))}
+export function dailyActivity(data,date,goalId=''){return data.goals.filter(g=>!goalId||g.id===goalId).map(goal=>({goal,amount:total(data,goal.id,date,date)})).filter(x=>x.amount>0)}

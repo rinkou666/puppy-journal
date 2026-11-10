@@ -1,8 +1,8 @@
 // Every release updates VERSION and the versioned module URLs together.
-const VERSION='pwa-6';
+const VERSION='pwa-7';
 const PREFIX='puppy-pwa:'+self.registration.scope+':';
 const CACHE=PREFIX+VERSION;
-const ASSETS=['./','./index.html','./app.js?v=pwa-6','./db.js?v=pwa-6','./model.js?v=pwa-6','./style.css?v=pwa-6','./dog.svg','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-maskable.png','./apple-touch-icon.png'];
+const ASSETS=['./','./index.html','./app.js?v=pwa-7','./db.js?v=pwa-7','./model.js?v=pwa-7','./style.css?v=pwa-7','./dog.svg','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-maskable.png','./apple-touch-icon.png'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);await cache.addAll(ASSETS.map(path=>new Request(new URL(path,self.registration.scope),{cache:'reload'})));await self.skipWaiting()})()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith(PREFIX)&&key!==CACHE)await caches.delete(key);await self.clients.claim()})()));
 self.addEventListener('fetch',event=>{

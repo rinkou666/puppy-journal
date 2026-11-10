@@ -1,5 +1,5 @@
-import * as M from './model.js?v=pwa-6';
-import {read,write} from './db.js?v=pwa-6';
+import * as M from './model.js?v=pwa-7';
+import {read,write} from './db.js?v=pwa-7';
 const $=(s,root=document)=>root.querySelector(s);
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const paths={home:'M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z',chart:'M4 20V11m8 9V4m8 16v-7M2 22h20',grid:'M3 3h7v7H3Zm11 0h7v7h-7ZM3 14h7v7H3Zm11 0h7v7h-7Z',download:'M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5',upload:'M12 16V4m-4 4 4-4 4 4M4 16v5h16v-5',heart:'M12 21 3 12C-4 3 7-1 12 6 17-1 28 3 21 12Z',move:'m4 15 4-4m-3 9 6-6m-2-7 8 8m-5-11 8 8M3 13l8 8M13 3l8 8',weight:'M8 8v8m8-8v8M3 9v6m18-6v6M3 12h18',book:'M12 5Q7 2 2 4v16q5-2 10 1 5-3 10-1V4q-5-2-10 1Zm0 0v16',flower:'M12 13q-10 3-8-4 2-4 7 0-6-8 0-8 5 0 2 8 6-7 9-2 2 5-8 6m-2 0v9m0-4q-6 0-7-4',time:'M3 12h18M6 9l3-4h6l3 4M5 16l-2 4m16-4 2 4',paw:'M9 13q3-4 6 0l3 5q0 4-6 2-6 2-6-2ZM5 7v2m5-6v3m5-3v3m4 1v2',plus:'M12 4v16M4 12h16',arrow:'M4 12h16m-5-5 5 5-5 5',edit:'m15 3 6 6-12 12H3v-6Zm-9 9 6 6',trash:'M3 6h18M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7',close:'m5 5 14 14M19 5 5 19',calendar:'M4 5h16v16H4ZM8 2v6m8-6v6M4 11h16',check:'m5 12 4 4L19 6',list:'M8 5h13M8 12h13M8 19h13M3 5h.1M3 12h.1M3 19h.1',shield:'M12 2 3 6v6q0 7 9 10 9-3 9-10V6Zm-4 10 3 3 5-6'};

@@ -14,3 +14,5 @@
 .topbar{justify-content:space-between}.install-button{min-height:44px;padding:10px 0 10px 12px;font-size:11px;color:#888}.install-guide img{width:72px;height:72px;display:block;border:1px solid #eee;border-radius:17px;margin:5px auto 20px}.install-guide p{font-size:13px;font-weight:600;margin:20px 0 8px}.install-guide ol{padding-left:20px;font-size:12px;line-height:2;color:#666}@media(display-mode:standalone){.install-button{display:none}}
 
 main{padding-top:32px}@media(display-mode:standalone){main{padding-top:calc(20px + env(safe-area-inset-top))}}
+
+.weekly-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.weekly-stats .panel{margin:0}.weekly-stats h2{margin:0 0 18px}.weekly-stats .compare{margin-top:0}@media(max-width:700px){.weekly-stats{grid-template-columns:1fr;gap:14px}}
